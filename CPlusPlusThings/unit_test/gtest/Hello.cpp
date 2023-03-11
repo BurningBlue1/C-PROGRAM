@@ -2,4 +2,6 @@
 using namespace std;
 int main(){
     cout<<"Helloworld"<<endl;
+    return 0;
 }
+//如何在vscode中引入cmake
