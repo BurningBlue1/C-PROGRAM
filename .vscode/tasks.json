@@ -5,7 +5,7 @@
 			"type": "cppbuild",
 			"label": "C/C++: g++.exe 生成活动文件",
 			// "command": "C:/mingw64/bin/g++.exe",
-			"command": "g++",
+			"command": "C:/mingw64/bin/g++.exe",
 			"args": [
 				"-fdiagnostics-color=always",
 				"-g",
@@ -24,6 +24,37 @@
 				"isDefault": true
 			},
 			"detail": "编译器: C:/mingw64/bin/g++.exe"
-		}
+		},
+		{
+            "label": "CMake: 生成活动文件",//任务的名称
+            "options": {//其他命令选项
+                "cwd": "${workspaceFolder}/build"//已执行程序或脚本的当前工作目录。如果省略，则使用代码的当前工作区根。
+            },
+            "dependsOn":["make"],//此任务依赖的其他任务,label为"make"，执行在这个任务之前
+        },
+		{
+            "type":"shell",
+            "label": "cmake",
+            "command": "cmake",//cmake .. -G "MinGW Makefiles"
+            "args": [
+                "..","-G \"MinGW Makefiles\""
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            }
+        },
+        {
+            "type":"shell",
+            "label": "make",
+            "command": "mingw32-make",//mingw32-make
+            "args": [
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/build"
+            },
+            "group": "build",
+            "dependsOn":["cmake"]
+
+        }
 	]
 }

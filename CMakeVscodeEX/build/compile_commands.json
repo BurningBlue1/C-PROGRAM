@@ -1,0 +1,8 @@
+[
+{
+  "directory": "D:/CODING/CPlusPlusPROGRAM/CMakeVscodeEX/build",
+  "command": "C:\\mingw64\\bin\\g++.exe   -g -o CMakeFiles\\hello_cmake.dir\\hello.cpp.obj -c D:\\CODING\\CPlusPlusPROGRAM\\CMakeVscodeEX\\hello.cpp",
+  "file": "D:/CODING/CPlusPlusPROGRAM/CMakeVscodeEX/hello.cpp",
+  "output": "CMakeFiles/hello_cmake.dir/hello.cpp.obj"
+}
+]
