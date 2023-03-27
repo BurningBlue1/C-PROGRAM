@@ -1,3 +1,4 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/gtestVscodeEX"
+    "cmake.sourceDirectory": "${workspaceFolder}/gtestVscodeEX",
+    "C_Cpp_default.compilerPath":"C:\\mingw64\\bin"
 }

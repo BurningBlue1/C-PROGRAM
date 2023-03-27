@@ -43,3 +43,5 @@ private:
 public:
     static std::string getMime(const std::string &suffix);
 };
+
+#endif

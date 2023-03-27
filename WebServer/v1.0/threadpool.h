@@ -14,8 +14,8 @@ const int MAX_THREADS = 1024;
 const int MAX_QUEUE = 65535;
 
 typedef enum{
-    immediate_shutdown =1;
-    graceful_shutdown =2;
+    immediate_shutdown =1,
+    graceful_shutdown =2
 } threadpool_shutdown_t;
 
 /**
@@ -25,7 +25,6 @@ typedef enum{
 *   @var function Pointer to the function that will perform the task.
 *   @var argument Argument to be passed to the function.
 */
-
 typedef struct{
     void (*function)(void *);
     void *argument;
@@ -39,8 +38,34 @@ typedef struct{
 *   @var threads Array containing worker threads ID.
 *   @var thread_count Number of threads.
 *   @var queue Array containing the task queue.
-*   @var 
+*   @var queue_size Size of the task queue
+*   @var head Index of the first element
+*   @var tail Index of the next element
+*   @var count Number of pending tasks
+*   @var shutdown Flag indicating if the pool is shutting down
+*   @var started Number of started threads
 */
+struct threadpool_t{
+    pthread_mutex_t lock;
+    pthread_cond_t notify;
+    pthread_t *threads;
+    threadpool_task_t *queue;
+    int thread_count;
+    int queue_size;
+    int head;
+    int tail;
+    int count;
+    int shutdown;
+    int started;
+};
+
+threadpool_t *threadpool_create(int thread_count,int queue_size,int flags);  //threadpool_t *threadpool_create表示函数返回的是一个threadpool_t类型的指针
+int threadpool_add(threadpool_t *pool,void (*function)(void *),void *argument,int flags);
+int threadpool_destory(threadpool_t *pool,int flags);
+int threadpool_free(threadpool_t *pool);
+static void *threadpoo_thread(void *threadpool);
+
+#endif 
 
 
 
