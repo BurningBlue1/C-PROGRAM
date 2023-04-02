@@ -8,3 +8,6 @@ Linux 多线程-互斥锁
 
 vscode检测到#include错误，请更新includePath之解决方法
 <https://livezhi.blog.csdn.net/article/details/128251230>
+
+linux虚拟机上使用git和github教程
+<https://blog.huati365.com/8b3f2a3bdcf12762>
